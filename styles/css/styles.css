@@ -479,7 +479,8 @@ header {
   outline: none;
   width: 167px; }
   .works__button:hover, .portfolio__button:hover {
-    cursor: pointer; }
+    cursor: pointer;
+    background-color: #d85753; }
 
 .adv__wrapper {
   background-color: #ffffff;
@@ -492,6 +493,17 @@ header {
   padding-right: 23px; }
   .works__title_right:before {
     left: 376px; }
+
+.work__text_read-more-state {
+  opacity: 0;
+  max-height: 0;
+  font-size: 0;
+  transition: .5s ease; }
+
+.work__text_read-less-state {
+  opacity: 1;
+  font-size: inherit;
+  max-height: 999em; }
 
 .portfolio {
   margin: 0 auto;

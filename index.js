@@ -23,3 +23,12 @@ const closePopup = function(){
   buttonClose.addEventListener('click', overlay.setAttribute('style', 'display:none'));
   buttonSubmit.addEventListener('click', overlay.setAttribute('style', 'display:none'));
 }
+
+const readMore = function(num) {
+  let text = document.querySelectorAll('span.works__text')[num];
+
+  text.classList.toggle('work__text_read-less-state');
+  console.log(text);
+}
+
+
