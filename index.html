@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>Daisy Portfolio Site</title>
+    <link rel="stylesheet" href="styles/css/styles.css">
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  </head>
+
+  <body>
+    <header>
+        <div class="header_container">
+                <div class="nav_container">
+                        <div class="logo">
+                            <div class="logo_hex"><p class="logo_inner">D</p></div>
+                            <p class="logo_outer">Daisy</p>
+                        </div>   
+                        <nav class="menu">
+                            <ul>
+                                <li class="menu__item menu__icon" onclick="displayMenu()">
+                                    <i class="fas fa-bars"></i>
+                                </li>
+                                <li class="menu__item">About
+                                <li class="menu__item menu__item_active">Portfolio
+                                <li class="menu__item">Services
+                                <li class="menu__item">Contact
+                                
+                            </ul>
+                        </nav>
+                </div>
+                <div class="title_container">
+                        <h1 class="title"><span>Clients </span>in your business</h1>
+                        <p class="title_explanation">Your clients on the internet. Learn how to receive them.</p>
+                        <button class="get-client button_transparent" onclick="openPopup()">I want clients</button>
+                        <img class="mouse" src="assets/images/mouse.png" alt="Mouse">
+                         <a href="#benefits"><button class="down"><img src="assets/images/down.png" alt="Down button"></button></a> 
+                </div>
+                    
+        </div>
+        <div class="js-overlay overlay">
+            <div class="popup js-popup">
+                <div class="popup__close js-close" onclick="closePopup()">
+                        <i class="far fa-times-circle"></i>
+                </div>
+                <div class="popup__content">
+
+                    <p>Fill in the form and we will call you back</p>
+                        
+                        <input type="text" class="name" placeholder="Name">  
+                        <br>   
+                        
+                        <input type="email" class="email" placeholder="E-mail">  
+                        <br>     
+
+                        <input type="number" class="phone" placeholder="Phone Number">
+                        <br> 
+
+                        <button class="submit" onclick="closePopup()">Submit</button>
+                </div>
+                </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="benefits" id="benefits">
+            <h2 class="block_heading">What can <span>you receive?</span></h2>
+            <div class="block_description">
+                <p>Daisy is sagittis sem nibh id elit. Duis sed odio 
+                    sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit.
+                </p>
+            </div>
+            
+            <div class="benefits__wrapper">
+                <div class="benefits__item">
+                    <img src="assets/images/clients.png" alt="Clients">
+                    <h3>Clients</h3>
+                    <p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean</p>
+                </div>
+                <div class="benefits__item">
+                        <img src="assets/images/branding.png" alt="Clients">
+                        <h3>Branding</h3>
+                        <p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean</p>
+                </div>
+                <div class="benefits__item">
+                        <img src="assets/images/marketing.png" alt="Clients">
+                        <h3>Marketing</h3>
+                        <p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean</p>
+                </div>
+                <div class="benefits__item">
+                        <img src="assets/images/adv.png" alt="Clients">
+                        <h3>Adv.</h3>
+                        <p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean</p>
+                </div>
+                
+            </div>
+            <a href="#expand"><button class="down down-light"><img src="assets/images/down_light.png" alt="Down button"></button></a>
+            
+        </section>
+
+        <section class="expand" id="expand">
+            <div class="expand_frame">
+                <h2><span>Expand </span>Your Business</h2>
+                <button class="expand__button button_transparent" onclick="openPopup()">Join Us</button>
+            </div>
+            <a href="#process"><button class="down"><img src="assets/images/down.png" alt="Down button"></button></a>
+        </section>
+
+        <section class="process" id="process">
+                <h2 class="block_heading">Our <span>process</span></h2>
+                <div class="block_description">
+                    <p>Daisy is sagittis sem nibh id elit. Duis sed odio 
+                        sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit.
+                    </p>
+                </div>
+                <div class="hexes_wrapper">
+                    
+                    <div class="hex hex1">
+                            <div class="hex__icon">
+                                <img src="assets/images/icon_light.png" alt="">
+                            </div>
+                        <h4>Step <span>1</span></h4>
+                        <p>This is Photoshop's version  of Lorem Ipsum. Proin gravida</p>
+                    </div>
+                    <div class="hex hex2">
+                            <div class="hex__icon">
+                                    <img src="assets/images/icon_comp.png" alt="">
+                                </div>
+                            <h4>Step <span>2</span></h4>
+                            <p>This is Photoshop's version  of Lorem Ipsum. Proin gravida</p>
+                    </div>
+                    <div class="hex hex3">
+                            <div class="hex__icon">
+                                    <img src="assets/images/icon_man.png" alt="">
+                                </div>
+                            <h4>Step <span>3</span></h4>
+                            <p>This is Photoshop's version  of Lorem Ipsum. Proin gravida</p>
+                    </div>
+                    <div class="hex hex-big hex4">
+                            <div class="hex__icon hex__icon_big">
+                                    <img src="assets/images/icon_like.png" alt="">
+                                </div>
+                            <h4>Step <span>4</span></h4>
+                            <p>This is Photoshop's version  of Lorem Ipsum. 
+                                Proin gravida nibh vel velit auctor aliquet. </p>
+                            <div class="hex__icon hex__icon_light">
+                                <img src="assets/images/icon_rocket.png" alt="">
+                            </div>
+                    </div>
+                    <div class="hex hex-big hex5">        
+                    </div>
+                </div>
+                <a href="#works"> <button class="down down-light"><img src="assets/images/down_light.png" alt="Down button"></button>  </a>
+                    
+        </section>
+
+        <section class="works" id="works">
+            <div class="works_grey">
+                    <div class="landing works__block">
+                            <h2 class="block_heading">What do <span>we do?</span></h2>
+                            <div class="works__wrapper">
+                                <div class="works__description">
+                                    <h4 class="works__title">Landing pages</h4>
+                                    <p class="works__text">This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit 
+                                        auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis 
+                                        sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum 
+                                        velit. Nam nec tellus a</p>
+                                    <button class="works__button">More details</button>
+                                </div>
+                                <img src="assets/images/devices.png" alt="">
+                            </div>
+                            <a href="#portfolio"><button class="down down-light"><img src="assets/images/down_light.png" alt="Down button"></button></a>
+                            
+                        </div>
+            </div>
+            
+            
+
+            <div class="advertising works__block">
+                
+                        <div class="works__wrapper">
+                                <img src="assets/images/adv_device.png" alt="">
+                                <div class="works__description works__description_right">
+                                    <h4 class="works__title works__title_right">Advertizing</h4>
+                                    <p class="works__text">This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit 
+                                        auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis 
+                                        sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum 
+                                        velit. Nam nec tellus a</p>
+                                    <button class="works__button">More details</button>
+                                </div>         
+                        </div>
+                        <a href="#portfolio"><button class="down down-light"><img src="assets/images/down_light.png" alt="Down button"></button></a>
+                        
+                  
+            </div>
+
+            <div class="works_grey"> 
+            <div class="marketing works__block">
+                   
+                          
+                            <div class="works__wrapper">
+                                <div class="works__description">
+                                    <h4 class="works__title">Marketing kit</h4>
+                                    <p class="works__text">This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit 
+                                        auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis 
+                                        sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum 
+                                        velit. Nam nec tellus a</p>
+                                    <button class="works__button">More details</button>
+                                </div>
+                                <img src="assets/images/mk_book.png" alt="">
+                            </div>
+                            <a href="#portfolio"><button class="down down-light"><img src="assets/images/down_light.png" alt="Down button"></button></a>
+                            
+                    </div>
+            </div>
+        </section>
+
+        <section class="portfolio" id="portfolio">
+            <h2 class="block_heading">Portfolio</h2>
+            <nav class="portfolio__nav">
+                <ul class="portfolio__list">
+                    <li><a href="#">All</a>
+                    <li><a href="#">Entertainment</a>
+                    <li><a href="#">Sport</a>
+                    <li><a href="#">Business</a>
+                    <li><a href="#">Building</a>
+                </ul>
+            </nav>
+
+            <div class="portfolio__table">
+                <div class="portfolio__item portfolio__bike">
+                    <div class="portfolio__item_onhover">
+                        <p class="portfolio__title">Mountain bike</p>
+                        <p class="portfolio__plus">+</p>
+                    </div>
+                </div>
+                <div class="portfolio__item"></div>
+                <div class="portfolio__item"></div>
+                <div class="portfolio__item"></div>
+                <div class="portfolio__item"></div>
+                <div class="portfolio__item"></div>
+            </div>
+            <img class="portfolio__mouse" src="assets/images/portfolio_mouse.png" alt="Mouse">
+            <button class="portfolio__button">I want landing page</button>
+            <a href="#team"><button class="down down-light"><img src="assets/images/down_light.png" alt="Down button"></button></a>
+            
+        </section>
+
+        <section class="team" id="team">
+            <h2 class="block_heading">Our <span>team</span></h2>
+            <div class="team__members">
+                <div class="team_member">
+                    <img class="team__photo" src="assets/images/timothy.png" alt="Tomothy">
+                    <h5 class="team__name"><span>Tomothy</span> Bowman</h5>
+                    <p class="team__position">Marketing</p>
+                    <div class="team__social">
+                        <img src="assets/images/fb.png" alt="Facebook">
+                        <img src="assets/images/tw.png" alt="Twitter">
+                        <img src="assets/images/in.png" alt="Linkedin">
+                    </div>
+                </div>
+                <div class="team_member">
+                    <img class="team__photo" src="assets/images/steve.png" alt="Steve">
+                    <h5 class="team__name"><span>Steve</span> Tracy</h5>
+                    <p class="team__position">CEO</p>
+                    <div class="team__social">
+                        <img src="assets/images/fb.png" alt="Facebook">
+                        <img src="assets/images/tw.png" alt="Twitter">
+                        <img src="assets/images/in.png" alt="Linkedin">
+                    </div>
+                </div>
+                <div class="team_member">
+                    <img class="team__photo" src="assets/images/hellen.png" alt="Hellen">
+                    <h5 class="team__name"><span>Hellen</span> Johns</h5>
+                    <p class="team__position">Clients</p>
+                    <div class="team__social">
+                        <img src="assets/images/fb.png" alt="Facebook">
+                        <img src="assets/images/tw.png" alt="Twitter">
+                        <img src="assets/images/in.png" alt="Linkedin">
+                    </div>
+                </div>
+            </div>
+            <a href="#testimonials"> <button class="down down-light"><img src="assets/images/down_light.png" alt="Down button"></button></a>
+           
+        </section>
+
+        <section class="testimonials" id="testimonials">
+            <div class="testimonials__quotes">
+                <img src="assets/images/testimonials_quotes.png" alt="Quotes">
+            </div>
+            <div class="testimonials__item">
+                <p class="testimonials__text">This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel 
+                    velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit conse</p>
+                <img src="assets/images/testimonials_pic.png" alt="Alan">
+                <div class="testimonias__position">
+                    <h5><span>Alan</span> Richman</h5>
+                    <p>CEO of Romashka</p>
+                </div>
+            </div>
+            <div class="testimonials__nav">
+                <a href=""><img src="assets/images/left.png" alt="Left"></a>
+                <a href=""><img src="assets/images/right.png" alt="Right"></a>
+            </div>
+        </section>
+
+        <section class="map">
+            <div class="map__address">
+                <h5>Daisy</h5>
+                <p>615 4th Ave S, Jacksonville Beach, FL 32250</p>
+            </div>
+            <div class="map__location">
+
+            </div>
+        </section>
+    </main>
+    <footer>
+            <div class="logo">
+                    <div class="logo_hex"><p class="logo_inner">D</p></div>
+                    <p class="logo_outer">Daisy</p>
+            </div>   
+    </footer>
+    <script src="index.js"></script>
+  </body>
+</html>

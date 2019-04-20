@@ -1,0 +1,25 @@
+{
+  "name": "neutronmail",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elenasoro/NeutronMail.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elenasoro/NeutronMail/issues"
+  },
+  "homepage": "https://github.com/elenasoro/NeutronMail#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-image": "^4.4.1",
+    "gulp-sass": "^4.0.2"
+  }
+}
