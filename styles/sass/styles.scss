@@ -106,9 +106,7 @@ header {
         position: relative;
         top: -39px;
     }
-    .down{
-        // margin-top: -98px;
-    }
+    
     a{
         margin-top: -98px; 
     }
@@ -185,7 +183,7 @@ header {
     transition: 1s ease;
     &:hover{
         cursor: pointer;
-        transform: scale(1.3, 1.3);
+        
         
     }  
 }
@@ -796,6 +794,14 @@ header {
     flex-direction: column;  
     justify-content: center;
 }
+.testimonials__carousel-container{
+    align-items: center;
+    display: flex;
+    flex-direction: column;  
+    justify-content: center;
+    position: relative;
+    right: 5%;
+}
 .testimonials__quotes{
     margin-top: 50px;
 }
@@ -806,12 +812,32 @@ header {
     margin-top: 54px;
     margin-bottom: -73px;
     width: 95px;
+    position: relative;
+    left: 8%;
+    button{
+        border: none;
+        outline: none;
+        &:hover{
+            cursor: pointer;
+            transform: scale(1.3, 1.3);
+            transition: .5s ease;
+        }
+    }
 }
 
 .testimonials__item{
-    display: flex;
+    display: none;
     margin-top: 74px;
     width: 80%;
+    
+    img{
+        position: realtive;
+        left: 50%;
+    }
+}
+.testimonials__item_displayed{
+    display:flex;
+    
 }
 
 .testimonials__text{
@@ -840,6 +866,16 @@ header {
         font-family: 'GothamRegular'; 
         font-size: 15px; 
     }
+}
+
+.fade{
+    animation-name: fade;
+    animation-duration: 1.5s;
+
+}
+@keyframes fade{
+    from{opacity: .1}
+    to{opacity:1}
 }
 
 // Map block

@@ -32,3 +32,39 @@ const readMore = function(num) {
 }
 
 
+  
+let current = 0;
+let items = document.querySelectorAll('.testimonials__item');
+  
+  
+  const showNext = function(){  
+    items[current].classList.remove('testimonials__item_displayed');
+    current++;
+
+    if(items[current] == undefined){
+      current = 0;
+    }
+
+    items[current].classList.add('testimonials__item_displayed');
+  }
+
+  const showPrevious = function(){
+    items[current].classList.remove('testimonials__item_displayed');
+    current--;
+
+    if(items[current] == undefined){
+      current = items.length-1;
+    }
+
+    items[current].classList.add('testimonials__item_displayed');
+  }
+
+  
+
+
+
+
+
+
+
+
