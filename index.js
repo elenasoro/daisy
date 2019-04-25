@@ -12,6 +12,7 @@ const openPopup = function(){
   let overlay = document.querySelector('.overlay');
   
   buttonOpen.addEventListener('click', overlay.setAttribute('style', 'display:block'));
+  document.body.style.overflow = "hidden";
   
 }
 
@@ -22,6 +23,7 @@ const closePopup = function(){
 
   buttonClose.addEventListener('click', overlay.setAttribute('style', 'display:none'));
   buttonSubmit.addEventListener('click', overlay.setAttribute('style', 'display:none'));
+  document.body.style.overflow = "";
 }
 
 const readMore = function(num) {
@@ -60,6 +62,58 @@ let items = document.querySelectorAll('.testimonials__item');
   }
 
   
+ 
+
+  const scrollDown = function(elemId){
+
+    
+
+    let elemClassY = document.querySelector(`#${elemId}`);
+
+    function getCoords(elem) { 
+      var box = elem.getBoundingClientRect();
+    
+      return {
+        top: box.top + pageYOffset,
+        left: box.left + pageXOffset
+      };
+    
+    }
+    
+    let elemY = getCoords(elemClassY).top;
+    console.log(elemY);
+    
+    window.scrollTo({
+      top: elemY,
+      behavior: 'smooth',
+    });
+  }
+
+
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+      document.querySelector(".button_top").style.display = "block";
+    } else {
+      document.querySelector(".button_top").style.display = "none";
+    }
+  }
+
+  window.onscroll = function() {scrollFunction()};
+
+  function toTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }
+  
+
+  
+
+
+
+
 
 
 

@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width" />
     <title>Daisy Portfolio Site</title>
+    
     <link rel="stylesheet" href="styles/css/styles.css">
     <link rel="stylesheet" href="styles/reset.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -35,7 +36,7 @@
                         <p class="title_explanation">Your clients on the internet. Learn how to receive them.</p>
                         <button class="get-client button_transparent" onclick="openPopup()">I want clients</button>
                         <img class="mouse" src="assets/images/mouse.png" alt="Mouse">
-                         <a href="#benefits"><button class="down"><img src="assets/images/down.png" alt="Down button"></button></a> 
+                         <button class="down"><img src="assets/images/down.png" alt="Down button" onclick="scrollDown('benefits')"></button>
                 </div>
                     
         </div>
@@ -64,6 +65,8 @@
     </header>
 
     <main>
+            
+        <button onclick="toTop()" class="button_top" title="Go to top"><i class="fas fa-arrow-up"></i></button>
         <section class="benefits" id="benefits">
             <h2 class="block_heading">What can <span>you receive?</span></h2>
             <div class="block_description">
@@ -95,7 +98,7 @@
                 </div>
                 
             </div>
-            <a href="#expand"><button class="down down-light"><img src="assets/images/down_light.png" alt="Down button"></button></a>
+            <button class="down down-light" onclick="scrollDown('expand')"><img src="assets/images/down_light.png" alt="Down button"></button>
             
         </section>
 
@@ -104,7 +107,7 @@
                 <h2><span>Expand </span>Your Business</h2>
                 <button class="expand__button button_transparent" onclick="openPopup()">Join Us</button>
             </div>
-            <a href="#process"><button class="down"><img src="assets/images/down.png" alt="Down button"></button></a>
+           <button class="down" onclick="scrollDown('process')"><img src="assets/images/down.png" alt="Down button"></button>
         </section>
 
         <section class="process" id="process">
@@ -151,7 +154,7 @@
                     <div class="hex hex-big hex5">        
                     </div>
                 </div>
-                <a href="#works"> <button class="down down-light"><img src="assets/images/down_light.png" alt="Down button"></button>  </a>
+                <button class="down down-light" onclick="scrollDown('works')"><img src="assets/images/down_light.png" alt="Down button"></button>
                     
         </section>
 
@@ -173,7 +176,7 @@
                                 </div>
                                 <img src="assets/images/devices.png" alt="">
                             </div>
-                            <a href="#portfolio"><button class="down down-light"><img src="assets/images/down_light.png" alt="Down button"></button></a>
+                           <button class="down down-light" onclick="scrollDown('portfolio')"><img src="assets/images/down_light.png" alt="Down button"></button>
                             
                         </div>
             </div>
@@ -196,7 +199,7 @@
                                     <button class="works__button" onclick="readMore(1)">More details</button>
                                 </div>         
                         </div>
-                        <a href="#portfolio"><button class="down down-light"><img src="assets/images/down_light.png" alt="Down button"></button></a>
+                       <button class="down down-light" onclick="scrollDown('portfolio')"><img src="assets/images/down_light.png" alt="Down button"></button>
                         
                   
             </div>
@@ -219,7 +222,7 @@
                                 </div>
                                 <img src="assets/images/mk_book.png" alt="">
                             </div>
-                            <a href="#portfolio"><button class="down down-light"><img src="assets/images/down_light.png" alt="Down button"></button></a>
+                            <button class="down down-light" onclick="scrollDown('portfolio')"><img src="assets/images/down_light.png" alt="Down button"></button>
                             
                     </div>
             </div>
@@ -252,7 +255,7 @@
             </div>
             <img class="portfolio__mouse" src="assets/images/portfolio_mouse.png" alt="Mouse">
             <button class="portfolio__button">I want landing page</button>
-            <a href="#team"><button class="down down-light"><img src="assets/images/down_light.png" alt="Down button"></button></a>
+           <button class="down down-light" onclick="scrollDown('team')"><img src="assets/images/down_light.png" alt="Down button"></button>
             
         </section>
 
@@ -290,7 +293,7 @@
                     </div>
                 </div>
             </div>
-            <a href="#testimonials"> <button class="down down-light"><img src="assets/images/down_light.png" alt="Down button"></button></a>
+             <button class="down down-light" onclick="scrollDown('testimonials')"><img src="assets/images/down_light.png" alt="Down button"></button>
            
         </section>
 
