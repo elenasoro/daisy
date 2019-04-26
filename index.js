@@ -16,15 +16,32 @@ const openPopup = function(){
   
 }
 
+
 const closePopup = function(){
   let buttonClose = document.querySelector('.js-close');
   let buttonSubmit = document.querySelector('.submit');
   let overlay = document.querySelector('.overlay');
+  
 
   buttonClose.addEventListener('click', overlay.setAttribute('style', 'display:none'));
   buttonSubmit.addEventListener('click', overlay.setAttribute('style', 'display:none'));
+  document.body.addEventListener('mouseup', overlay.setAttribute('style', 'display:none'));
   document.body.style.overflow = "";
 }
+
+window.onload = function(){
+  let divToHide = document.querySelector('.overlay');
+  let popup = document.querySelector('.js-popup');
+  
+  document.onclick = function(e){
+    if(e.target.id !== 'get-client' && e.target != popup && e.target.parentNode != popup && e.target.parentNode.parentNode != popup){
+      
+      divToHide.style.display = 'none';
+      document.body.style.overflow = "";
+    }
+  }
+}
+
 
 const readMore = function(num) {
   let text = document.querySelectorAll('span.works__text')[num];
@@ -108,6 +125,65 @@ let items = document.querySelectorAll('.testimonials__item');
     });
   }
   
+
+  const validate = function(){
+    let userName = document.querySelector('#user_name');
+    let email = document.querySelector('#email');
+    let phoneNumber = document.querySelector('#phone');
+    let phoneRegx = /[^0-9]/;
+    let emailRegx = /.+@.+\..+/i;
+
+    function showError(elem, errorMessage) {
+      
+      var msgElem = document.createElement('span');
+      msgElem.className = "error_message";
+      msgElem.innerHTML = errorMessage;
+      elem.after(msgElem);
+      
+    }
+
+    function resetError(field) {
+      field.style.border = '';
+      if (field.nextElementSibling.className == "error_message") {
+        field.parentNode.removeChild(document.querySelector('.error_message'));
+      }
+    }
+
+
+    resetError(userName);
+    if (!userName.value) {
+      userName.style.border = '2px solid red';
+      showError(userName, 'Enter your name');
+      return false;
+    }
+
+    resetError(email);
+    if (!email.value) {
+      email.style.border = '2px solid red';
+      showError(email, 'Enter your email');
+      return false;
+    } else if(email.value.match(emailRegx) == null){
+      console.log(email.value.match(emailRegx));
+      email.style.border = '2px solid red';
+      showError(email, 'Invalid format. Shoud contain @ and .');
+      return false;
+    }
+    
+
+    resetError(phoneNumber);
+    if (!phoneNumber.value) {
+      phoneNumber.style.border = '2px solid red';
+      showError(phoneNumber, 'Enter your phone');
+      return false;
+    } else if(phoneNumber.value.match(phoneRegx) != null){
+      
+      phoneNumber.style.border = '2px solid red';
+      showError(phoneNumber, 'Should be a number');
+      return false;
+    }
+
+    return true;
+  }
 
   
 

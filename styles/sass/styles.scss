@@ -957,4 +957,15 @@ footer{
     width: 100%;
 }
 
+.popup__content .error_message{
+    color: white ;
+    padding-top: 10px;
+    font-size: 12px ;
+    // position: absolute;
+    // left: 23px;
+}
+.error {
+    color: red;
+  }
+
 @import 'media';

@@ -34,14 +34,14 @@
                 <div class="title_container">
                         <h1 class="title"><span>Clients </span>in your business</h1>
                         <p class="title_explanation">Your clients on the internet. Learn how to receive them.</p>
-                        <button class="get-client button_transparent" onclick="openPopup()">I want clients</button>
+                        <button class="get-client button_transparent" onclick="openPopup()" id="get-client">I want clients</button>
                         <img class="mouse" src="assets/images/mouse.png" alt="Mouse">
                          <button class="down"><img src="assets/images/down.png" alt="Down button" onclick="scrollDown('benefits')"></button>
                 </div>
                     
         </div>
-        <div class="js-overlay overlay">
-            <div class="popup js-popup">
+        <div class="js-overlay overlay" id="overlay">
+            <form class="popup js-popup" onsubmit="return validate()" id="js-popup" novalidate>
                 <div class="popup__close js-close" onclick="closePopup()">
                         <i class="far fa-times-circle"></i>
                 </div>
@@ -49,18 +49,20 @@
 
                     <p>Fill in the form and we will call you back</p>
                         
-                        <input type="text" class="name" placeholder="Name">  
+                        <input type="text" class="name" placeholder="Name" id="user_name">  
                         <br>   
                         
-                        <input type="email" class="email" placeholder="E-mail">  
+                        <input type="email" class="email" placeholder="E-mail" id="email">  
                         <br>     
 
-                        <input type="number" class="phone" placeholder="Phone Number">
+                        <input type="number" class="phone" placeholder="Phone Number" id="phone">
                         <br> 
 
-                        <button class="submit" onclick="closePopup()">Submit</button>
+                        <button type='submit' class="submit" >Submit</button>
+                        
                 </div>
-                </div>
+                
+            </form>
         </div>
     </header>
 
