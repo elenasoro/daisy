@@ -1,11 +1,12 @@
-const displayMenu = function(){
-    let menu = document.querySelector('.menu');
-    if (menu.className === "menu") {
-        menu.className += " responsive";
-      } else {
-        menu.className = "menu";
-      }
-}
+// const displayMenu = function(){
+//     let menu = document.querySelector('.menu');
+//     if (menu.className === "menu") {
+//         menu.className += " responsive";
+//       } 
+//       else {
+//         menu.className = "menu";
+//       }
+// }
 
 const openPopup = function(){
   let buttonOpen = document.querySelector('.get-client');
@@ -82,9 +83,6 @@ let items = document.querySelectorAll('.testimonials__item');
  
 
   const scrollDown = function(elemId){
-
-    
-
     let elemClassY = document.querySelector(`#${elemId}`);
 
     function getCoords(elem) { 
@@ -94,7 +92,6 @@ let items = document.querySelectorAll('.testimonials__item');
         top: box.top + pageYOffset,
         left: box.left + pageXOffset
       };
-    
     }
     
     let elemY = getCoords(elemClassY).top;
@@ -185,7 +182,35 @@ let items = document.querySelectorAll('.testimonials__item');
     return true;
   }
 
-  
+
+  const applyFilter = function(filter){
+    
+    let itemsToDisplay = document.querySelectorAll(`.portfolio__${filter}`);
+    let allItems = document.querySelectorAll('.portfolio__all');
+
+    allItems.forEach(function(e){
+      e.style.display = 'none';
+    });
+
+    itemsToDisplay.forEach(function(e){
+      e.style.display = 'block';
+    });
+
+  }
+
+
+  const changeColorWhenSelected = function(){
+    let itemsFilter = document.querySelectorAll('.portfolio__list li');
+    itemsFilter.forEach(function(e){
+      e.addEventListener('click', function(){
+        itemsFilter.forEach(function(e){
+          e.classList.remove('active');
+        });
+        e.classList.add('active');
+      })
+    })
+  }
+  changeColorWhenSelected();
 
 
 

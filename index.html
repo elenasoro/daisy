@@ -20,7 +20,7 @@
                         </div>   
                         <nav class="menu">
                             <ul>
-                                <li class="menu__item menu__icon" onclick="displayMenu()">
+                                <li class="menu__item menu__icon">
                                     <i class="fas fa-bars"></i>
                                 </li>
                                 <li class="menu__item">About
@@ -234,26 +234,26 @@
             <h2 class="block_heading">Portfolio</h2>
             <nav class="portfolio__nav">
                 <ul class="portfolio__list">
-                    <li><a href="#">All</a>
-                    <li><a href="#">Entertainment</a>
-                    <li><a href="#">Sport</a>
-                    <li><a href="#">Business</a>
-                    <li><a href="#">Building</a>
+                    <li onclick="applyFilter('all')">All
+                    <li onclick="applyFilter('entertainment')">Entertainment
+                    <li onclick="applyFilter('sport')">Sport
+                    <li onclick="applyFilter('business')">Business
+                    <li onclick="applyFilter('building')">Building
                 </ul>
             </nav>
 
             <div class="portfolio__table">
-                <div class="portfolio__item portfolio__bike">
+                <div class="portfolio__item portfolio__bike portfolio__all portfolio__sport">
                     <div class="portfolio__item_onhover">
                         <p class="portfolio__title">Mountain bike</p>
                         <p class="portfolio__plus">+</p>
                     </div>
                 </div>
-                <div class="portfolio__item"></div>
-                <div class="portfolio__item"></div>
-                <div class="portfolio__item"></div>
-                <div class="portfolio__item"></div>
-                <div class="portfolio__item"></div>
+                <div class="portfolio__item portfolio__all portfolio__entertainment"></div>
+                <div class="portfolio__item portfolio__all portfolio__business"></div>
+                <div class="portfolio__item portfolio__all portfolio__business"></div>
+                <div class="portfolio__item portfolio__all portfolio__building"></div>
+                <div class="portfolio__item portfolio__all portfolio__entertainment"></div>
             </div>
             <img class="portfolio__mouse" src="assets/images/portfolio_mouse.png" alt="Mouse">
             <button class="portfolio__button">I want landing page</button>

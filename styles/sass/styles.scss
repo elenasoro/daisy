@@ -273,6 +273,7 @@ header {
     border: 3px solid #c23d38;
     outline: none;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    z-index: 99;
     &:hover{
         cursor: pointer;
         background-color: #cfcdcd;
@@ -651,11 +652,13 @@ header {
     text-transform: uppercase;
     li{
         display: inline;
-        
-        a{
-            color: #7d7c79;
-            text-decoration: none;
+        color: #7d7c79;
+        &:hover{
+            cursor: pointer;
         }
+    }
+    li.active{
+        color: #fc635e; 
     }
     li+li:before{
         color: #858688;
