@@ -1,12 +1,77 @@
-// const displayMenu = function(){
-//     let menu = document.querySelector('.menu');
-//     if (menu.className === "menu") {
-//         menu.className += " responsive";
-//       } 
-//       else {
-//         menu.className = "menu";
-//       }
-// }
+
+
+const openVideoPopup = function(){
+  let buttonOpen = document.querySelector('.portfolio__plus');
+  let overlay = document.querySelector('.overlay__video');
+
+  buttonOpen.addEventListener('click', overlay.setAttribute('style', 'display:block'));
+  document.body.style.overflow = "hidden";
+}
+
+const closeVideoPopup = function(){
+  let buttonClose = document.querySelector('.player__close');
+  let overlay = document.querySelector('.overlay__video');
+
+  buttonClose.addEventListener('click', overlay.setAttribute('style', 'display:none'));
+  video.pause();
+  document.body.style.overflow = "";
+}
+
+
+  const player = document.querySelector('.player');
+  const video = player.querySelector('.viewer');
+  const progress = player.querySelector('.progress');
+  const progressBar = player.querySelector('.progress_filled');
+  const toggle = player.querySelector('.toggle');
+  const skipButtons = player.querySelectorAll('[data-skip]');
+  const ranges = player.querySelectorAll('.player__slider');
+  
+
+  function togglePlay(){
+    if(video.paused){
+      video.play();
+    } else {
+      video.pause();
+    }
+      
+  }
+
+  function updateButton(){
+    var buttonPlay = document.querySelector('.video__play');
+    var buttonPause = document.querySelector('.video__pause');
+
+    if(this.paused){
+      buttonPlay.style.display = 'block';
+      buttonPause.style.display = 'none';
+    } else {
+      buttonPause.style.display = 'block';
+      buttonPlay.style.display = 'none';
+    }
+  }
+
+  function skip(){
+    video.currentTime += parseFloat(this.dataset.skip);
+  }
+
+  function rangeUpdate(){
+    video[this.name] = this.value;
+    
+  }
+
+  video.addEventListener('click', togglePlay);
+  video.addEventListener('play', updateButton);
+  video.addEventListener('pause', updateButton);
+  toggle.addEventListener('click', togglePlay);
+  skipButtons.forEach(button => button.addEventListener('click', skip));
+  ranges.forEach(range => range.addEventListener('click', rangeUpdate));
+  ranges.forEach(range => range.addEventListener('mousemove', rangeUpdate));
+
+
+
+
+
+
+
 
 const openPopup = function(){
   let buttonOpen = document.querySelector('.get-client');
@@ -51,37 +116,7 @@ const readMore = function(num) {
   console.log(text);
 }
 
-
-  
-// let current = 0;
-// let items = document.querySelectorAll('.testimonials__item');
-  
-  
-//   const showNext = function(){  
-//     items[current].classList.remove('testimonials__item_displayed');
-//     current++;
-
-//     if(items[current] == undefined){
-//       current = 0;
-//     }
-
-//     items[current].classList.add('testimonials__item_displayed');
-//   }
-
-//   const showPrevious = function(){
-//     items[current].classList.remove('testimonials__item_displayed');
-//     current--;
-
-//     if(items[current] == undefined){
-//       current = items.length-1;
-//     }
-
-//     items[current].classList.add('testimonials__item_displayed');
-//   }
-
-  
  
-
   const scrollDown = function(elemId){
     let elemClassY = document.querySelector(`#${elemId}`);
 
@@ -259,6 +294,8 @@ const readMore = function(num) {
 
     new Slider();
   })();
+
+
 
 
 
