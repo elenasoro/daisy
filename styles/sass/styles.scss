@@ -972,6 +972,15 @@ header {
     }
 }
 
+.testimonials__button.disabled{
+    opacity: 0.5;
+    &:hover{
+        cursor: default;
+        transform: none;
+        transition: none;
+    }
+}
+
 .testimonials__item{
     display: none;
     margin-top: 74px;

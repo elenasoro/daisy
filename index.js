@@ -325,18 +325,48 @@ const readMore = function(num) {
     }
 
     Slider.prev = function(box){
+      
+      
+      const btnsPrev = box.btns[0];
+      const btnsNext = box.btns[1];
+      btnsNext.classList.remove('disabled');
+
       box.slidesBox.style.transition = 'transform .3s ease-in-out'; 
       var size = box.size;
-      index<= 0 ? false : index--;
+      console.log(index);
+      if(index <= 0 ){
+        return false;
+      } else if(index == 1){
+        btnsPrev.classList.add('disabled');
+        index--;
+      } else{
+        index--;
+      }
+      
       box.slidesBox.style.transform = 'translateX('+(-index*size)+'px)';
     };
 
 
     Slider.next = function(box){
+
+      const btnsPrev = box.btns[0];
+      const btnsNext = box.btns[1];
+
+      btnsPrev.classList.remove('disabled');
+
       box.slidesBox.style.transition = 'transform .3s ease-in-out';
       var max = box.slides.length;
       var size = box.size;
-      index>=max-1? false : index++;
+
+      if(index >=max-1 ){      
+        return false;
+      } else if(index == max-2){
+        btnsNext.classList.add('disabled');
+        index++;
+      } else{
+        index++;
+      }
+
       box.slidesBox.style.transform = 'translateX('+(-index*size)+'px)';
     };
 

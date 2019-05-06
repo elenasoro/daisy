@@ -814,6 +814,14 @@ video {
               transform: scale(1.3, 1.3);
       transition: .5s ease; }
 
+.testimonials__button.disabled {
+  opacity: 0.5; }
+  .testimonials__button.disabled:hover {
+    cursor: default;
+    -webkit-transform: none;
+            transform: none;
+    transition: none; }
+
 .testimonials__item {
   display: none;
   margin-top: 74px;
