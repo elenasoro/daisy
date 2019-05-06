@@ -38,7 +38,7 @@ const closeVideoPopup = function(){
   const video = player.querySelector('.viewer');
   const progress = player.querySelector('.progress');
   const progressBar = player.querySelector('.progress_filled');
-  const toggle = player.querySelector('.toggle');
+  const toggle = player.querySelectorAll('.toggle');
   const skipButtons = player.querySelectorAll('[data-skip]');
   const ranges = player.querySelectorAll('.player__slider');
   
@@ -55,13 +55,20 @@ const closeVideoPopup = function(){
   function updateButton(){
     var buttonPlay = document.querySelector('.video__play');
     var buttonPause = document.querySelector('.video__pause');
+    var hoverPlay = document.querySelector('.hover__play');
+    var hoverPause = document.querySelector('.hover__pause');
+
 
     if(this.paused){
       buttonPlay.style.display = 'block';
+      hoverPlay.style.display = 'block';
       buttonPause.style.display = 'none';
+      hoverPause.style.display = 'none';
     } else {
       buttonPause.style.display = 'block';
       buttonPlay.style.display = 'none';
+      hoverPause.style.display = 'block';
+      hoverPlay.style.display = 'none';
     }
   }
 
@@ -73,14 +80,27 @@ const closeVideoPopup = function(){
     video[this.name] = this.value;
   }
 
+  function handleProgress(){  
+    const percent = (video.currentTime / video.duration) * 100;  
+    progressBar.style.flexBasis = `${percent}%`;
+  }
+
+  function scrub(e){
+    const scrubTime = (e.offsetX / progress.offsetWidth) * video.duration;
+    video.currentTime = scrubTime;
+  }
+
   video.addEventListener('click', togglePlay);
   video.addEventListener('play', updateButton);
   video.addEventListener('pause', updateButton);
-  toggle.addEventListener('click', togglePlay);
+
+  toggle.forEach(item => item.addEventListener('click', togglePlay));
+  
+  video.addEventListener('timeupdate', handleProgress);
   skipButtons.forEach(button => button.addEventListener('click', skip));
   ranges.forEach(range => range.addEventListener('click', rangeUpdate));
   ranges.forEach(range => range.addEventListener('mousemove', rangeUpdate));
-
+  progress.addEventListener('click', scrub);
 
 
 
@@ -372,6 +392,48 @@ const readMore = function(num) {
 
     new Slider();
   })();
+
+
+  
+    let showingTooltip;
+
+    document.onmouseover = function(e){
+      var target = e.target;
+      var tooltip = target.getAttribute('data-tooltip');
+      if(!tooltip) return;
+
+      console.log('tooltip');
+
+      var tooltipElem = document.createElement('div');
+      tooltipElem.className = 'tooltip';
+      tooltipElem.innerHTML = tooltip;
+      document.body.appendChild(tooltipElem);
+
+      var coords = target.getBoundingClientRect();
+
+      var left = coords.left + (target.offsetWidth - tooltipElem.offsetWidth) / 2;
+      if(left < 0) left = 0;
+
+      var top = coords.top - tooltipElem.offsetHeight - 5;
+      if (top < 0) { 
+        top = coords.top + target.offsetHeight + 5;
+      }
+
+      tooltipElem.style.left = left + 'px';
+      tooltipElem.style.top = top + 'px';
+
+      showingTooltip = tooltipElem;
+    };
+
+    document.onmouseout = function(e) {
+
+      if (showingTooltip) {
+        document.body.removeChild(showingTooltip);
+        showingTooltip = null;
+      }
+
+    };
+  
 
 
 
