@@ -639,6 +639,14 @@ video {
   grid-auto-rows: minmax(200px, auto);
   margin-top: 50px; }
 
+.portfolio__table.one {
+  grid-template-columns: 100%;
+  grid-auto-rows: minmax(500px, auto); }
+
+.portfolio__table.two {
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: minmax(300px, auto); }
+
 .portfolio__item {
   background-repeat: no-repeat;
   background-size: cover; }
@@ -647,11 +655,20 @@ video {
     .portfolio__item:hover .portfolio__item_onhover {
       display: block; }
 
+.portfolio__item.displayed {
+  display: block; }
+
+.portfolio__item.hidden {
+  display: none; }
+
 .portfolio__item:first-child {
   grid-column: 1/3; }
 
 .portfolio__item:last-child {
   grid-column: 3/5; }
+
+.portfolio__item:last-child.two {
+  grid-column: auto; }
 
 .portfolio__item:nth-child(1) {
   background-image: url(../../assets/images/portfolio_bike.png); }

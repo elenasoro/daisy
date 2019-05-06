@@ -4,14 +4,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width" />
     <title>Daisy Portfolio Site</title>
-    
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.11.1/firebase-app.js"></script> -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script> -->
     <link rel="stylesheet" href="styles/css/styles.css">
     <link rel="stylesheet" href="styles/reset.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="manifest" href="manifest.json">
   </head>
 
   <body>
     <header>
+       
         <div class="header_container">
                 <div class="nav_container">
                         <div class="logo">
@@ -23,10 +27,10 @@
                                 <li class="menu__item menu__icon">
                                     <i class="fas fa-bars"></i>
                                 </li>
-                                <li class="menu__item">About
-                                <li class="menu__item menu__item_active">Portfolio
-                                <li class="menu__item">Services
-                                <li class="menu__item">Contact
+                                <li class="menu__item menu__item_active">About
+                                <li class="menu__item" onclick="scrollDown('process')">Portfolio
+                                <li class="menu__item" onclick="scrollDown('works')">Services
+                                <li class="menu__item" onclick="scrollDown('contact')">Contact
                                 
                             </ul>
                         </nav>
@@ -48,17 +52,19 @@
                 <div class="popup__content">
 
                     <p>Fill in the form and we will call you back</p>
-                        
-                        <input type="text" class="name" placeholder="Name" id="user_name">  
+
+                    <form action="/submit" method="GET">
+                        <input type="text" class="name" placeholder="Name" id="user_name" name="user_name">  
                         <br>   
                         
-                        <input type="email" class="email" placeholder="E-mail" id="email">  
+                        <input type="email" class="email" placeholder="E-mail" id="email" name="user_email">  
                         <br>     
 
-                        <input type="number" class="phone" placeholder="Phone Number" id="phone">
+                        <input type="number" class="phone" placeholder="Phone Number" id="phone" name="user_phone">
                         <br> 
 
                         <button type='submit' class="submit" >Submit</button>
+                    </form>
                         
                 </div>
                 
@@ -289,9 +295,9 @@
                     <h5 class="team__name"><span>Tomothy</span> Bowman</h5>
                     <p class="team__position">Marketing</p>
                     <div class="team__social">
-                        <img src="assets/images/fb.png" alt="Facebook">
-                        <img src="assets/images/tw.png" alt="Twitter">
-                        <img src="assets/images/in.png" alt="Linkedin">
+                        <a href="https://www.facebook.com/" target="_blank"><img src="assets/images/fb.png" alt="Facebook"></a> 
+                        <a href="https://twitter.com/" target="_blank"><img src="assets/images/tw.png" alt="Twitter"></a>
+                        <a href="https://www.linkedin.com/feed/" target="_blank"><img src="assets/images/in.png" alt="Linkedin"></a>
                     </div>
                 </div>
                 <div class="team_member">
@@ -299,9 +305,9 @@
                     <h5 class="team__name"><span>Steve</span> Tracy</h5>
                     <p class="team__position">CEO</p>
                     <div class="team__social">
-                        <img src="assets/images/fb.png" alt="Facebook">
-                        <img src="assets/images/tw.png" alt="Twitter">
-                        <img src="assets/images/in.png" alt="Linkedin">
+                        <a href="https://www.facebook.com/" target="_blank"><img src="assets/images/fb.png" alt="Facebook"></a>
+                        <a href="https://twitter.com/" target="_blank"><img src="assets/images/tw.png" alt="Twitter"></a>
+                        <a href="https://www.linkedin.com/feed/" target="_blank"><img src="assets/images/in.png" alt="Linkedin"></a>
                     </div>
                 </div>
                 <div class="team_member">
@@ -309,9 +315,9 @@
                     <h5 class="team__name"><span>Hellen</span> Johns</h5>
                     <p class="team__position">Clients</p>
                     <div class="team__social">
-                        <img src="assets/images/fb.png" alt="Facebook">
-                        <img src="assets/images/tw.png" alt="Twitter">
-                        <img src="assets/images/in.png" alt="Linkedin">
+                        <a href="https://www.facebook.com/" target="_blank"><img src="assets/images/fb.png" alt="Facebook"></a>
+                        <a href="https://twitter.com/" target="_blank"><img src="assets/images/tw.png" alt="Twitter"></a>
+                        <a href="https://www.linkedin.com/feed/" target="_blank"><img src="assets/images/in.png" alt="Linkedin"></a>
                     </div>
                 </div>
             </div>
@@ -368,7 +374,7 @@
             
         </section>
 
-        <section class="map">
+        <section class="map" id="contact">
             <div class="map__address">
                 <h5>Daisy</h5>
                 <p>615 4th Ave S, Jacksonville Beach, FL 32250</p>
@@ -384,6 +390,19 @@
                     <p class="logo_outer">Daisy</p>
             </div>   
     </footer>
+
+    <pre id="object">
+
+    </pre>
     <script src="index.js"></script>
+    
+    
+<!-- <script>
+var firebase = require('firebase/app');
+require('firebase/auth');
+require('firebase/database');
+</script> -->
+   
+
   </body>
 </html>

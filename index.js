@@ -1,10 +1,26 @@
 
 
-const openVideoPopup = function(){
-  let buttonOpen = document.querySelector('.portfolio__plus');
-  let overlay = document.querySelector('.overlay__video');
+// (function(){
+//   const firebaseConfig = {
+//     apiKey: "AIzaSyB9YP6t-oX_8lIpfWxoiAfs_TY65HleQSA",
+//     authDomain: "daisy-2b05e.firebaseapp.com",
+//     databaseURL: "https://daisy-2b05e.firebaseio.com",
+//     projectId: "daisy-2b05e",
+//     storageBucket: "daisy-2b05e.appspot.com",
+//     messagingSenderId: "18018587133",
+//     appId: "1:18018587133:web:a740df53be99febf"
+//   };
+//   // Initialize Firebase
+//   firebase.initializeApp(firebaseConfig);
+// }());
 
-  buttonOpen.addEventListener('click', overlay.setAttribute('style', 'display:block'));
+
+
+
+
+const openVideoPopup = function(){
+  const overlay = document.querySelector('.overlay__video');
+  overlay.setAttribute('style', 'display:block');
   document.body.style.overflow = "hidden";
 }
 
@@ -55,7 +71,6 @@ const closeVideoPopup = function(){
 
   function rangeUpdate(){
     video[this.name] = this.value;
-    
   }
 
   video.addEventListener('click', togglePlay);
@@ -111,8 +126,15 @@ window.onload = function(){
 
 const readMore = function(num) {
   let text = document.querySelectorAll('span.works__text')[num];
+  let button = document.querySelectorAll('.works__button')[num];
 
   text.classList.toggle('work__text_read-less-state');
+  if(button.innerHTML !== 'Hide'){
+    button.innerHTML = 'Hide';
+  } else{
+    button.innerHTML = 'More Details';
+  }
+  
   console.log(text);
 }
 
@@ -218,18 +240,42 @@ const readMore = function(num) {
   }
 
 
+
+  function updateTable(){
+    
+    const tableItemsDisplayed = document.querySelectorAll('.portfolio__item.displayed');
+    const table = document.querySelector('.portfolio__table');
+    const tableLastItem = document.querySelector('.portfolio__item:last-child');
+
+    table.classList.remove('one');
+    table.classList.remove('two');
+ 
+    if(tableItemsDisplayed.length == 1){
+      table.classList.add('one');
+    } else if (tableItemsDisplayed.length == 2){
+      table.classList.add('two');
+      tableLastItem.classList.add('two');
+    } else if(tableItemsDisplayed.length > 2) {
+      tableLastItem.classList.remove('two');
+    }
+  }
+
   const applyFilter = function(filter){
     
     let itemsToDisplay = document.querySelectorAll(`.portfolio__${filter}`);
     let allItems = document.querySelectorAll('.portfolio__all');
 
     allItems.forEach(function(e){
-      e.style.display = 'none';
+      e.classList.remove('displayed');
+      e.classList.add('hidden');
     });
 
     itemsToDisplay.forEach(function(e){
-      e.style.display = 'block';
+      e.classList.remove('hidden');
+      e.classList.add('displayed');
     });
+
+    updateTable();
 
   }
 
@@ -246,6 +292,8 @@ const readMore = function(num) {
     })
   }
   changeColorWhenSelected();
+
+  
 
 
   (function(){
@@ -269,9 +317,9 @@ const readMore = function(num) {
     }
 
     Slider.prototype.carousel = function(){
-      var i, max = this.btns.length, that = this;
+      let i, max = this.btns.length, that = this;
 
-      for(i = 0; i<max; i+=1){
+      for(i = 0; i < max; i++){
         that.btns[i].addEventListener('click', Slider[that.btns[i].id].bind(null, that));
       }
     }

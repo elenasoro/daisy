@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>Daisy Portfolio Site</title>
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="..//styles/reset.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <link rel='stylesheet' type='text/css' href='/resources/tutorial/css/example.css'>
+  </head>
+
+  <body>
+    <header>
+        <div class="header_container">
+                <div class="nav_container">
+                        <div class="logo">
+                            <div class="logo_hex"><p class="logo_inner">D</p></div>
+                            <p class="logo_outer">Daisy</p>
+                        </div>   
+                        <nav class="menu">
+                            <ul>
+                                <li class="menu__item menu__icon">
+                                    <i class="fas fa-bars"></i>
+                                </li>
+                                <li class="menu__item menu__item_active">About
+                                <li class="menu__item" onclick="scrollDown('process')">Portfolio
+                                <li class="menu__item" onclick="scrollDown('works')">Services
+                                <li class="menu__item" onclick="scrollDown('contact')">Contact
+                                
+                            </ul>
+                        </nav>
+                </div>
+                <div class="title_container">
+                        <h1 class="title"><span>Clients </span>in your business</h1>
+                        <p class="title_explanation">Your clients on the internet. Learn how to receive them.</p>
+                        <button class="get-client button_transparent" onclick="openPopup()" id="get-client">I want clients</button>
+                        <img class="mouse" src="assets/images/mouse.png" alt="Mouse">
+                         <button class="down"><img src="assets/images/down.png" alt="Down button" onclick="scrollDown('benefits')"></button>
+                </div>
+                    
+        </div>
+        <div class="js-overlay overlay" id="overlay">
+            <form class="popup js-popup" onsubmit="return validate()" id="js-popup" novalidate>
+                <div class="popup__close js-close" onclick="closePopup()">
+                        <i class="far fa-times-circle"></i>
+                </div>
+                <div class="popup__content">
+
+                    <p>Fill in the form and we will call you back</p>
+
+                    <form action="mail.php" method="POST">
+                        <input type="text" class="name" placeholder="Name" id="user_name" name="user_name">  
+                        <br>   
+                        
+                        <input type="email" class="email" placeholder="E-mail" id="email" name="user_email">  
+                        <br>     
+
+                        <input type="number" class="phone" placeholder="Phone Number" id="phone" name="user_phone">
+                        <br> 
+
+                        <button type='submit' class="submit" >Submit</button>
+                    </form>
+                        
+                </div>
+                
+            </form>
+        </div>
+    </header>
+
+    <main>
+            
+        <button onclick="toTop()" class="button_top" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+        <section class="benefits" id="benefits">
+            <h2 class="block_heading">What can <span>you receive?</span></h2>
+            <div class="block_description">
+                <p>Daisy is sagittis sem nibh id elit. Duis sed odio 
+                    sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit.
+                </p>
+            </div>
+            
+            <div class="benefits__wrapper">
+                <div class="benefits__item">
+                    <img src="assets/images/clients.png" alt="Clients">
+                    <h3>Clients</h3>
+                    <p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean</p>
+                </div>
+                <div class="benefits__item">
+                        <img src="assets/images/branding.png" alt="Clients">
+                        <h3>Branding</h3>
+                        <p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean</p>
+                </div>
+                <div class="benefits__item">
+                        <img src="assets/images/marketing.png" alt="Clients">
+                        <h3>Marketing</h3>
+                        <p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean</p>
+                </div>
+                <div class="benefits__item">
+                        <img src="assets/images/adv.png" alt="Clients">
+                        <h3>Adv.</h3>
+                        <p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean</p>
+                </div>
+                
+            </div>
+            <button class="down down-light" onclick="scrollDown('expand')"><img src="assets/images/down_light.png" alt="Down button"></button>
+            
+        </section>
+
+        <section class="expand" id="expand">
+            <div class="expand_frame">
+                <h2><span>Expand </span>Your Business</h2>
+                <button class="expand__button button_transparent" onclick="openPopup()">Join Us</button>
+            </div>
+           <button class="down" onclick="scrollDown('process')"><img src="assets/images/down.png" alt="Down button"></button>
+        </section>
+
+        <section class="process" id="process">
+                <h2 class="block_heading">Our <span>process</span></h2>
+                <div class="block_description">
+                    <p>Daisy is sagittis sem nibh id elit. Duis sed odio 
+                        sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit.
+                    </p>
+                </div>
+                <div class="hexes_wrapper">
+                    
+                    <div class="hex hex1">
+                            <div class="hex__icon">
+                                <img src="assets/images/icon_light.png" alt="">
+                            </div>
+                        <h4>Step <span>1</span></h4>
+                        <p>This is Photoshop's version  of Lorem Ipsum. Proin gravida</p>
+                    </div>
+                    <div class="hex hex2">
+                            <div class="hex__icon">
+                                    <img src="assets/images/icon_comp.png" alt="">
+                                </div>
+                            <h4>Step <span>2</span></h4>
+                            <p>This is Photoshop's version  of Lorem Ipsum. Proin gravida</p>
+                    </div>
+                    <div class="hex hex3">
+                            <div class="hex__icon">
+                                    <img src="assets/images/icon_man.png" alt="">
+                                </div>
+                            <h4>Step <span>3</span></h4>
+                            <p>This is Photoshop's version  of Lorem Ipsum. Proin gravida</p>
+                    </div>
+                    <div class="hex hex-big hex4">
+                            <div class="hex__icon hex__icon_big">
+                                    <img src="assets/images/icon_like.png" alt="">
+                                </div>
+                            <h4>Step <span>4</span></h4>
+                            <p>This is Photoshop's version  of Lorem Ipsum. 
+                                Proin gravida nibh vel velit auctor aliquet. </p>
+                            <div class="hex__icon hex__icon_light">
+                                <img src="assets/images/icon_rocket.png" alt="">
+                            </div>
+                    </div>
+                    <div class="hex hex-big hex5">        
+                    </div>
+                </div>
+                <button class="down down-light" onclick="scrollDown('works')"><img src="assets/images/down_light.png" alt="Down button"></button>
+                    
+        </section>
+
+        <section class="works" id="works">
+            <div class="works_grey">
+                    <div class="landing works__block">
+                            <h2 class="block_heading">What do <span>we do?</span></h2>
+                            <div class="works__wrapper">
+                                <div class="works__description">
+                                    <h4 class="works__title">Landing pages</h4>
+                                    <p class="works__text">This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit 
+                                        auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis 
+                                        sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum 
+                                        velit. Nam nec tellus a <span class="works__text work__text_read-more-state">This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit 
+                                            auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis 
+                                            sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum 
+                                            velit. Nam nec tellus a</span></p>
+                                    <button class="works__button" onclick="readMore(0)">More details</button>
+                                </div>
+                                <img src="assets/images/devices.png" alt="">
+                            </div>
+                           <button class="down down-light" onclick="scrollDown('portfolio')"><img src="assets/images/down_light.png" alt="Down button"></button>
+                            
+                        </div>
+            </div>
+            
+            
+
+            <div class="advertising works__block">
+                
+                        <div class="works__wrapper">
+                                <img src="assets/images/adv_device.png" alt="">
+                                <div class="works__description works__description_right">
+                                    <h4 class="works__title works__title_right">Advertizing</h4>
+                                    <p class="works__text">This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit 
+                                        auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis 
+                                        sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum 
+                                        velit. Nam nec tellus a<span class="works__text work__text_read-more-state">This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit 
+                                            auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis 
+                                            sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum 
+                                            velit. Nam nec tellus a</span></p>
+                                    <button class="works__button" onclick="readMore(1)">More details</button>
+                                </div>         
+                        </div>
+                       <button class="down down-light" onclick="scrollDown('portfolio')"><img src="assets/images/down_light.png" alt="Down button"></button>
+                        
+                  
+            </div>
+
+            <div class="works_grey"> 
+            <div class="marketing works__block">
+                   
+                          
+                            <div class="works__wrapper">
+                                <div class="works__description">
+                                    <h4 class="works__title">Marketing kit</h4>
+                                    <p class="works__text">This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit 
+                                        auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis 
+                                        sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum 
+                                        velit. Nam nec tellus a<span class="works__text work__text_read-more-state">This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit 
+                                            auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis 
+                                            sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum 
+                                            velit. Nam nec tellus a</span></p>
+                                    <button class="works__button" onclick="readMore(2)">More details</button>
+                                </div>
+                                <img src="assets/images/mk_book.png" alt="">
+                            </div>
+                            <button class="down down-light" onclick="scrollDown('portfolio')"><img src="assets/images/down_light.png" alt="Down button"></button>
+                            
+                    </div>
+            </div>
+        </section>
+
+
+
+        <section class="portfolio" id="portfolio">
+            <h2 class="block_heading">Portfolio</h2>
+            <nav class="portfolio__nav">
+                <ul class="portfolio__list">
+                    <li onclick="applyFilter('all')">All
+                    <li onclick="applyFilter('entertainment')">Entertainment
+                    <li onclick="applyFilter('sport')">Sport
+                    <li onclick="applyFilter('business')">Business
+                    <li onclick="applyFilter('building')">Building
+                </ul>
+            </nav>
+
+            <div class="overlay__video">
+                <div class="player">
+                    <div class="player__close" onclick="closeVideoPopup()"><i class="far fa-times-circle"></i></div>
+                    <video class="player__video viewer" src="assets/video/videoplayback.mp4"></video>
+                    <div class="player__controls">
+                        <div class="progress">
+                            <div class="progress_filled"></div>
+                        </div>
+                    </div>
+                    <button class="player__button toggle" title="Toggle Play"><i class="fas fa-play video__play"></i><i class="fas fa-pause video__pause"></i></button>
+                    <input type="range" name="volume" class="player__slider" min=0 max="1" step="0.05" value="1">
+                    <input type="range" name="playbackRate" class="player__slider" min='0.5' max="2" step="0.1" value="1">
+                    <button data-skip="-15" class="player__button"><i class="fas fa-backward"></i></button>
+                    <button data-skip="15" class="player__button"><i class="fas fa-forward"></i></button>
+                </div>
+            </div>
+
+
+            <div class="portfolio__table">
+                <div class="portfolio__item portfolio__bike portfolio__all portfolio__sport">
+                    <div class="portfolio__item_onhover">
+                        <p class="portfolio__title">Mountain bike</p>
+                        <button class="portfolio__plus" onclick="openVideoPopup()"><p>+</p></button> 
+                    </div>
+                </div>
+                <div class="portfolio__item portfolio__all portfolio__entertainment"></div>
+                <div class="portfolio__item portfolio__all portfolio__business"></div>
+                <div class="portfolio__item portfolio__all portfolio__business"></div>
+                <div class="portfolio__item portfolio__all portfolio__building"></div>
+                <div class="portfolio__item portfolio__all portfolio__entertainment"></div>
+            </div>
+            <img class="portfolio__mouse" src="assets/images/portfolio_mouse.png" alt="Mouse">
+            <button class="portfolio__button">I want landing page</button>
+           <button class="down down-light" onclick="scrollDown('team')"><img src="assets/images/down_light.png" alt="Down button"></button>
+            
+        </section>
+
+        <section class="team" id="team">
+            <h2 class="block_heading">Our <span>team</span></h2>
+            <div class="team__members">
+                <div class="team_member">
+                    <img class="team__photo" src="assets/images/timothy.png" alt="Tomothy">
+                    <h5 class="team__name"><span>Tomothy</span> Bowman</h5>
+                    <p class="team__position">Marketing</p>
+                    <div class="team__social">
+                        <a href="https://www.facebook.com/" target="_blank"><img src="assets/images/fb.png" alt="Facebook"></a> 
+                        <a href="https://twitter.com/" target="_blank"><img src="assets/images/tw.png" alt="Twitter"></a>
+                        <a href="https://www.linkedin.com/feed/" target="_blank"><img src="assets/images/in.png" alt="Linkedin"></a>
+                    </div>
+                </div>
+                <div class="team_member">
+                    <img class="team__photo" src="assets/images/steve.png" alt="Steve">
+                    <h5 class="team__name"><span>Steve</span> Tracy</h5>
+                    <p class="team__position">CEO</p>
+                    <div class="team__social">
+                        <a href="https://www.facebook.com/" target="_blank"><img src="assets/images/fb.png" alt="Facebook"></a>
+                        <a href="https://twitter.com/" target="_blank"><img src="assets/images/tw.png" alt="Twitter"></a>
+                        <a href="https://www.linkedin.com/feed/" target="_blank"><img src="assets/images/in.png" alt="Linkedin"></a>
+                    </div>
+                </div>
+                <div class="team_member">
+                    <img class="team__photo" src="assets/images/hellen.png" alt="Hellen">
+                    <h5 class="team__name"><span>Hellen</span> Johns</h5>
+                    <p class="team__position">Clients</p>
+                    <div class="team__social">
+                        <a href="https://www.facebook.com/" target="_blank"><img src="assets/images/fb.png" alt="Facebook"></a>
+                        <a href="https://twitter.com/" target="_blank"><img src="assets/images/tw.png" alt="Twitter"></a>
+                        <a href="https://www.linkedin.com/feed/" target="_blank"><img src="assets/images/in.png" alt="Linkedin"></a>
+                    </div>
+                </div>
+            </div>
+             <button class="down down-light" onclick="scrollDown('testimonials')"><img src="assets/images/down_light.png" alt="Down button"></button>
+           
+        </section>
+
+        <section class="testimonials" id="testimonials">
+            
+           
+            <div class="testimonials__quotes">
+                <img src="assets/images/testimonials_quotes.png" alt="Quotes">
+            </div>
+
+            <div class="testimonials__carousel-container">
+
+                <div class="testimonials__carousel-slides">
+                        <div class="testimonials__item fade testimonials__item_displayed">
+                                <p class="testimonials__text">This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel 
+                                    velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit conse</p>
+                                <img src="assets/images/testimonials_pic.png" alt="Alan">
+                                <div class="testimonias__position">
+                                    <h5><span>Alan</span> Richman</h5>
+                                    <p>CEO of Romashka</p>
+                                </div>
+                        </div>
+                        <div class="testimonials__item fade testimonials__item_displayed">
+                                <p class="testimonials__text">This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel 
+                                    velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit conse</p>
+                                <img src="assets/images/hellen.png" alt="Hellen">
+                                <div class="testimonias__position">
+                                    <h5><span>Hellen</span> Richman</h5>
+                                    <p>CEO of Romashka</p>
+                                </div>
+                        </div>
+                        <div class="testimonials__item fade testimonials__item_displayed">
+                                <p class="testimonials__text">This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel 
+                                    velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit conse</p>
+                                <img src="assets/images/steve.png" alt="Steve">
+                                <div class="testimonias__position">
+                                    <h5><span>Steve</span> Richman</h5>
+                                    <p>CEO of Romashka</p>
+                                </div>
+                        </div>
+                </div>
+                    
+                <div class="testimonials__nav">
+                    <button class="testimonials__button testimonials__button_previous" id='prev'><img src="assets/images/left.png" alt="Left"></button>
+                    <button class="testimonials__button testimonials__button_next" id='next'><img src="assets/images/right.png" alt="Right"></button>
+                            
+                </div>
+
+            </div>
+            
+        </section>
+
+        <section class="map" id="contact">
+            <div class="map__address">
+                <h5>Daisy</h5>
+                <p>615 4th Ave S, Jacksonville Beach, FL 32250</p>
+            </div>
+            <div class="map__location">
+
+            </div>
+        </section>
+    </main>
+    <footer>
+            <div class="logo">
+                    <div class="logo_hex"><p class="logo_inner">D</p></div>
+                    <p class="logo_outer">Daisy</p>
+            </div>   
+    </footer>
+    <script src="index.js"></script>
+
+  </body>
+</html>
