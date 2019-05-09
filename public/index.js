@@ -1,7 +1,35 @@
 
-const messaging = firebase.messaging();
+function submitForm(){
+  const name = document.querySelector('input.name').value;
+  const email = document.querySelector('input.email').value;
+  const submitButton = document.querySelector('button.submit');
+  let overlay = document.querySelector('.overlay');
 
-console.log(messaging);
+  function request(){
+    var xhr = new XMLHttpRequest();
+
+    var body = 'name=' + encodeURIComponent(name) +
+    '&email=' + encodeURIComponent(email);
+  
+    xhr.open("POST", '/submit', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  
+    xhr.onreadystatechange = function() {
+      if (this.readyState != 4) return;
+    
+      alert( this.responseText );
+      overlay.setAttribute('style', 'display:none');
+    }
+  
+    xhr.send(body);
+    console.log(body);
+  }
+
+  submitButton.addEventListener('click', request());
+  
+  
+}
+
 
 const openVideoPopup = function(){
   const overlay = document.querySelector('.overlay__video');
