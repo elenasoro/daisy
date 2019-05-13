@@ -51,7 +51,7 @@ const closeVideoPopup = function(){
   const video = player.querySelector('.viewer');
   const progress = player.querySelector('.progress');
   const progressBar = player.querySelector('.progress_filled');
-  const toggle = player.querySelector('.toggle');
+  const toggle = player.querySelectorAll('.toggle');
   const skipButtons = player.querySelectorAll('[data-skip]');
   const ranges = player.querySelectorAll('.player__slider');
   
@@ -68,15 +68,32 @@ const closeVideoPopup = function(){
   function updateButton(){
     var buttonPlay = document.querySelector('.video__play');
     var buttonPause = document.querySelector('.video__pause');
+    var hoverPlay = document.querySelector('.hover__play');
+    var hoverPause = document.querySelector('.hover__pause');
 
     if(this.paused){
       buttonPlay.style.display = 'block';
+      hoverPlay.style.display = 'block';
       buttonPause.style.display = 'none';
+      hoverPause.style.display = 'none';
     } else {
       buttonPause.style.display = 'block';
       buttonPlay.style.display = 'none';
+      hoverPause.style.display = 'block';
+      hoverPlay.style.display = 'none';
     }
   }
+
+  function handleProgress(){  
+    const percent = (video.currentTime / video.duration) * 100;  
+    progressBar.style.flexBasis = `${percent}%`;
+  }
+
+  function scrub(e){
+    const scrubTime = (e.offsetX / progress.offsetWidth) * video.duration;
+    video.currentTime = scrubTime;
+  }
+
 
   function skip(){
     video.currentTime += parseFloat(this.dataset.skip);
@@ -89,10 +106,54 @@ const closeVideoPopup = function(){
   video.addEventListener('click', togglePlay);
   video.addEventListener('play', updateButton);
   video.addEventListener('pause', updateButton);
-  toggle.addEventListener('click', togglePlay);
+  toggle.forEach(item => item.addEventListener('click', togglePlay));
+
+  video.addEventListener('timeupdate', handleProgress);
   skipButtons.forEach(button => button.addEventListener('click', skip));
   ranges.forEach(range => range.addEventListener('click', rangeUpdate));
   ranges.forEach(range => range.addEventListener('mousemove', rangeUpdate));
+
+  progress.addEventListener('click', scrub);
+
+  let showingTooltip;
+
+    document.onmouseover = function(e){
+      var target = e.target;
+      var tooltip = target.getAttribute('data-tooltip');
+      if(!tooltip) return;
+
+      console.log('tooltip');
+
+      var tooltipElem = document.createElement('div');
+      tooltipElem.className = 'tooltip';
+      tooltipElem.innerHTML = tooltip;
+      document.body.appendChild(tooltipElem);
+
+      var coords = target.getBoundingClientRect();
+
+      var left = coords.left + (target.offsetWidth - tooltipElem.offsetWidth) / 2;
+      if(left < 0) left = 0;
+
+      var top = coords.top - tooltipElem.offsetHeight - 5;
+      if (top < 0) { 
+        top = coords.top + target.offsetHeight + 5;
+      }
+
+      tooltipElem.style.left = left + 'px';
+      tooltipElem.style.top = top + 'px';
+
+      showingTooltip = tooltipElem;
+    };
+
+    document.onmouseout = function(e) {
+
+      if (showingTooltip) {
+        document.body.removeChild(showingTooltip);
+        showingTooltip = null;
+      }
+
+    };
+
 
 
 
@@ -128,7 +189,9 @@ window.onload = function(){
   let popup = document.querySelector('.js-popup');
   
   document.onclick = function(e){
-    if(e.target.id !== 'get-client' && e.target != popup && e.target.parentNode != popup && e.target.parentNode.parentNode != popup){
+    if(e.target.id !== 'get-client' && e.target !== popup &&
+    
+    e.target.parentNode !== popup && e.target.parentNode.parentNode !== popup){
       
       divToHide.style.display = 'none';
       document.body.style.overflow = "";
@@ -252,6 +315,25 @@ const readMore = function(num) {
     return true;
   }
 
+  function updateTable(){
+
+    const tableItemsDisplayed = document.querySelectorAll('.portfolio__item.displayed');
+    const table = document.querySelector('.portfolio__table');
+    const tableLastItem = document.querySelector('.portfolio__item:last-child');
+
+    table.classList.remove('one');
+    table.classList.remove('two');
+
+    if(tableItemsDisplayed.length == 1){
+      table.classList.add('one');
+    } else if (tableItemsDisplayed.length == 2){
+      table.classList.add('two');
+      tableLastItem.classList.add('two');
+    } else if(tableItemsDisplayed.length > 2) {
+      tableLastItem.classList.remove('two');
+    }
+  }
+
 
   const applyFilter = function(filter){
     
@@ -259,12 +341,16 @@ const readMore = function(num) {
     let allItems = document.querySelectorAll('.portfolio__all');
 
     allItems.forEach(function(e){
-      e.style.display = 'none';
+      e.classList.remove('displayed');
+      e.classList.add('hidden');
     });
 
     itemsToDisplay.forEach(function(e){
-      e.style.display = 'block';
+      e.classList.remove('hidden');
+      e.classList.add('displayed');
     });
+
+    updateTable();
 
   }
 
@@ -312,18 +398,47 @@ const readMore = function(num) {
     }
 
     Slider.prev = function(box){
+
+      const btnsPrev = box.btns[0];
+      const btnsNext = box.btns[1];
+      btnsNext.classList.remove('disabled');
+
       box.slidesBox.style.transition = 'transform .3s ease-in-out'; 
       var size = box.size;
-      index<= 0 ? false : index--;
+      
+      if(index <= 0 ){
+        return false;
+      } else if(index == 1){
+        btnsPrev.classList.add('disabled');
+        index--;
+      } else{
+        index--;
+      }
+
       box.slidesBox.style.transform = 'translateX('+(-index*size)+'px)';
     };
 
 
     Slider.next = function(box){
+
+      const btnsPrev = box.btns[0];
+      const btnsNext = box.btns[1];
+
+      btnsPrev.classList.remove('disabled');
+
       box.slidesBox.style.transition = 'transform .3s ease-in-out';
       var max = box.slides.length;
       var size = box.size;
-      index>=max-1? false : index++;
+
+      if(index >=max-1 ){      
+        return false;
+      } else if(index == max-2){
+        btnsNext.classList.add('disabled');
+        index++;
+      } else{
+        index++;
+      }
+
       box.slidesBox.style.transform = 'translateX('+(-index*size)+'px)';
     };
 
