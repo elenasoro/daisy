@@ -125,7 +125,7 @@ const closeVideoPopup = function(){
       console.log('tooltip');
 
       var tooltipElem = document.createElement('div');
-      tooltipElem.className = 'tooltip';
+      tooltipElem.className = 'video__tooltip';
       tooltipElem.innerHTML = tooltip;
       document.body.appendChild(tooltipElem);
 
@@ -257,6 +257,7 @@ const readMore = function(num) {
   
 
   const validate = function(){
+    console.log('validating');
     let userName = document.querySelector('#user_name');
     let email = document.querySelector('#email');
     let phoneNumber = document.querySelector('#phone');

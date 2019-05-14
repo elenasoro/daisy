@@ -8,6 +8,9 @@
 }
 
 
+main{
+    overflow: hidden;
+}
 // Header
 
 header { 
@@ -327,13 +330,11 @@ header {
 
  
 .benefits__wrapper{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-column-gap: 50px;
-    margin-top: 85px;
+    margin-top: 40px;
 }
 
 .benefits__item{
+    margin-bottom: 30px;
     h3{
         color: #868686;
         font-family: 'GothamRegular';
@@ -805,7 +806,7 @@ header {
     }
     
 
-    .tooltip{
+    .video__tooltip{
         position: fixed;
         padding: 10px 20px;
         border: 1px solid #b3c9ce;
@@ -950,8 +951,8 @@ header {
 }
 
 .team__members{
-    display: flex;
-    justify-content: space-around;
+    // display: flex;
+    // justify-content: space-around;
     width: 80%;
 }
 .team_member{
@@ -1103,7 +1104,7 @@ header {
     }
 }
 
-.fade{
+.testimonials_fade{
     animation-name: fade;
     animation-duration: 1.5s;
 

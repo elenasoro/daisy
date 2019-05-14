@@ -6,6 +6,9 @@
   font-family: 'GothamRegular';
   src: url(../../assets/fonts/GothamPro/GothamProRegular/GothamProRegular.ttf); }
 
+main {
+  overflow: hidden; }
+
 header {
   background-image: url(../../assets/images/background.png);
   background-repeat: no-repeat;
@@ -277,26 +280,24 @@ header {
     margin-top: 25px; }
 
 .benefits__wrapper {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-column-gap: 50px;
-  margin-top: 85px; }
+  margin-top: 40px; }
 
-.benefits__item h3 {
-  color: #868686;
-  font-family: 'GothamRegular';
-  font-size: 20px;
-  font-weight: bold;
-  margin-top: 20px;
-  text-decoration: underline;
-  text-transform: uppercase;
-  text-underline-position: under; }
-
-.benefits__item p {
-  color: #b8b8b8;
-  font-size: 15px;
-  font-family: 'GothamRegular';
-  margin-top: 25px; }
+.benefits__item {
+  margin-bottom: 30px; }
+  .benefits__item h3 {
+    color: #868686;
+    font-family: 'GothamRegular';
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+    text-decoration: underline;
+    text-transform: uppercase;
+    text-underline-position: under; }
+  .benefits__item p {
+    color: #b8b8b8;
+    font-size: 15px;
+    font-family: 'GothamRegular';
+    margin-top: 25px; }
 
 .expand {
   align-items: center;
@@ -674,7 +675,7 @@ video {
 .player:hover .hover__button {
   display: block; }
 
-.tooltip {
+.video__tooltip {
   position: fixed;
   padding: 10px 20px;
   border: 1px solid #b3c9ce;
@@ -795,8 +796,6 @@ video {
     margin-top: 70px; }
 
 .team__members {
-  display: flex;
-  justify-content: space-around;
   width: 80%; }
 
 .team_member {
@@ -922,7 +921,7 @@ video {
     font-family: 'GothamRegular';
     font-size: 15px; }
 
-.fade {
+.testimonials_fade {
   -webkit-animation-name: fade;
           animation-name: fade;
   -webkit-animation-duration: 1.5s;

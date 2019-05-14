@@ -10,10 +10,10 @@ gulp.task('image', function () {
 });
 
 gulp.task('sass', function () {
-    return gulp.src('styles/sass/*.scss')
+    return gulp.src('public/styles/sass/*.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer())
-        .pipe(gulp.dest('styles/css'));
+        .pipe(gulp.dest('public/styles/css'));
 });
 
 
@@ -23,7 +23,7 @@ gulp.task('fonts', function () {
 });
 
 gulp.task('watch', ['sass', 'image', 'fonts'], function () {
-    gulp.watch('styles/sass/*.scss', ['sass']);
+    gulp.watch('public/styles/sass/*.scss', ['sass']);
     gulp.watch('img/*', ['image']);
     gulp.watch('fonts/*', ['fonts']);
 });
