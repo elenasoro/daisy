@@ -37,8 +37,8 @@ console.log('Сервер стартовал!');
 var transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'sorokina.eln@gmail.com',
-    pass: 'lenhen1991'
+    user: '',
+    pass: ''
   }
 });
 
